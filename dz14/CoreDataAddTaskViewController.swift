@@ -10,6 +10,8 @@ import UIKit
 
 class CoreDataAddTaskViewController: UIViewController {
     
+    @IBOutlet weak var taskTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
