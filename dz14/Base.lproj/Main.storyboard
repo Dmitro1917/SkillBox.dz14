@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="esx-H5-eca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuH-Rl-kZp">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -188,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBS-5V-5fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="-322"/>
+            <point key="canvasLocation" x="2912" y="-322"/>
         </scene>
         <!--Погода-->
         <scene sceneID="KQm-RY-FCd">
@@ -329,7 +329,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="txr-P0-Vax">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoreDataCell" rowHeight="130" id="ddk-Rb-YFd" userLabel="CoreDataCell" customClass="CoreDataCell" customModule="dz14" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="130"/>
@@ -403,12 +403,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Добавить"/>
+                                <connections>
+                                    <segue destination="l4x-X0-GVx" kind="show" id="u29-qX-Xyp"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="txr-P0-Vax" id="tbS-lM-rP6"/>
                     </connections>
@@ -416,41 +416,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58m-wn-cMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1983" y="442"/>
-        </scene>
-        <!--Core Data Add Task View Controller-->
-        <scene sceneID="5hq-ne-i0g">
-            <objects>
-                <viewController storyboardIdentifier="coreDataNewTask" id="cRc-ON-XgC" customClass="CoreDataAddTaskViewController" customModule="dz14" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GTj-dM-EtZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Введите задачу..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-3k-3ZI">
-                                <rect key="frame" x="0.0" y="92" width="414" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="kNg-9l-qeT"/>
-                                </constraints>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="join" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="syj-fB-Xmt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Jnf-3k-3ZI" secondAttribute="trailing" id="0dj-UE-uL4"/>
-                            <constraint firstItem="Jnf-3k-3ZI" firstAttribute="leading" secondItem="syj-fB-Xmt" secondAttribute="leading" id="5op-cy-0jd"/>
-                            <constraint firstItem="Jnf-3k-3ZI" firstAttribute="top" secondItem="syj-fB-Xmt" secondAttribute="top" id="lpA-4s-pqg"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="42n-Af-iWY"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uge-iz-nt6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2848" y="442"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zlr-cC-V1V">
@@ -505,11 +470,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WUd-6q-O2z" kind="show" id="rif-zf-6jI"/>
+                        <segue destination="WUd-6q-O2z" kind="relationship" relationship="rootViewController" id="scw-YV-0qB"/>
                     </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="1092.753623188406" y="441.96428571428572"/>
+        </scene>
+        <!--Core Data Add Task View Controller-->
+        <scene sceneID="deV-ky-sAq">
+            <objects>
+                <viewController storyboardIdentifier="coreDataNewTask" id="l4x-X0-GVx" customClass="CoreDataAddTaskViewController" customModule="dz14" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NbY-CF-li4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Введите задачу..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ytq-ji-tWs">
+                                <rect key="frame" x="0.0" y="92" width="414" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="S4r-ZH-W2w"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="join" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DAv-aW-Kwk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ytq-ji-tWs" secondAttribute="trailing" id="2fX-dK-6pg"/>
+                            <constraint firstItem="Ytq-ji-tWs" firstAttribute="top" secondItem="DAv-aW-Kwk" secondAttribute="top" id="H9c-TC-Vhk"/>
+                            <constraint firstItem="Ytq-ji-tWs" firstAttribute="leading" secondItem="DAv-aW-Kwk" secondAttribute="leading" id="YbR-3n-oRM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M2m-9a-cFU">
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="NQZ-an-V9Z">
+                            <connections>
+                                <action selector="doneButton:" destination="l4x-X0-GVx" id="1Py-FW-675"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskTextField" destination="Ytq-ji-tWs" id="8Rj-hV-Oqo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4I2-64-mic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2912" y="442"/>
         </scene>
     </scenes>
     <resources>
