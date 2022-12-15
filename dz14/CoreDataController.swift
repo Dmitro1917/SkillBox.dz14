@@ -3,8 +3,8 @@ import CoreData
 
 class CoreDataController: UIViewController {
 
-    var tasks: [Task] = []
-//    var tasks = ["1", "2", "3"]
+//    var tasks: [Task] = []
+    var tasks = ["1", "2", "3"]
     @IBOutlet weak var tableView: UITableView!
     
     
