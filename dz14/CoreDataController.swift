@@ -2,14 +2,27 @@ import UIKit
 import CoreData
 
 class CoreDataController: UIViewController {
-
-//    var tasks: [Task] = []
-    var tasks = ["1", "2", "3"]
+    
+    var tasks: [CoreDataTaskController] = []
+    //    var tasks = ["1", "2", "3"]
     @IBOutlet weak var tableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<CoreDataTaskController> = CoreDataTaskController.fetchRequest()
+        
+        do {
+            tasks = try context .fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     
     
     @IBAction func addTaskButton(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(identifier: "coreDataNewTask") as! RealmAddTaskViewController
+        let vc = storyboard?.instantiateViewController(identifier: "coreDataNewTask") as! CoreDataAddTaskViewController
         vc.update = {
             DispatchQueue.main.async {
                 self.updateTasks()
@@ -24,10 +37,19 @@ class CoreDataController: UIViewController {
     }
     
     func updateTasks(){
-            print("lol")
-//        tableView.reloadData()
+        tasks.removeAll()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<CoreDataTaskController> = CoreDataTaskController.fetchRequest()
+            do {
+                tasks = try context .fetch(fetchRequest)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            tableView.reloadData()
+        }
     }
-}
 
 extension CoreDataController: UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -38,7 +60,8 @@ extension CoreDataController: UITableViewDataSource, UITableViewDelegate, UIText
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoreDataCell") as! CoreDataCell
-        cell.taskLabel.text = tasks[indexPath.row]
+        let textOfTask = tasks[indexPath.row]
+        cell.taskLabel.text = textOfTask.taskText
         return cell
     }
 }

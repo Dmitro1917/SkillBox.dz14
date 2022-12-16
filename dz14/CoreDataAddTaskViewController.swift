@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class CoreDataAddTaskViewController: UIViewController {
+    
+    var update: (() -> Void)?
     
     @IBOutlet weak var taskTextField: UITextField!
     
@@ -16,5 +19,20 @@ class CoreDataAddTaskViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func doneButton(_ sender: Any) {
+        if taskTextField.text != "" {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
+            let taskObject = CoreDataTaskController(entity: entity, insertInto: context)
+            taskObject.taskText = taskTextField.text!
+            do {
+                try context.save()
+                update?()
+                navigationController?.popViewController(animated: true)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

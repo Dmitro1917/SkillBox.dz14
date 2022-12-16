@@ -27,7 +27,6 @@ class RealmController: UIViewController {
         tasks.removeAll()
         let realmTasks = realm.objects(Tasks.self)
         for task in realmTasks {
-            print("lol \(task.taskText)")
             tasks.append("\(task.taskText)")
         }
         tableView.reloadData()
@@ -71,7 +70,6 @@ extension RealmController {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 let allTasks = realm.objects(Tasks.self)
                 try! realm.write{
-//                    realm.deleteAll()
                     realm.delete(allTasks)
                 }
                 for task in self.tasks {
