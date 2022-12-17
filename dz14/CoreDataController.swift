@@ -91,7 +91,6 @@ extension CoreDataController {
                 }
             }
             do {
-//                self.tasks = try context.fetch(fetchRequest)
                 try context.save()
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -111,15 +110,3 @@ extension CoreDataController {
     return [deleteAction]
 }
 }
-
-// Это для удаления ячеек
-//extension CoreDataController {
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//            let deleteAction = UITableViewRowAction(style: .destructive, title: "Удалить") {
-//                _, indexPath in
-//            }
-//
-//            return [deleteAction]
-//        }
-//}
