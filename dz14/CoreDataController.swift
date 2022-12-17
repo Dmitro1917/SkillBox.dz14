@@ -14,10 +14,11 @@ class CoreDataController: UIViewController {
         let fetchRequest: NSFetchRequest<CoreDataTaskController> = CoreDataTaskController.fetchRequest()
         
         do {
-            tasks = try context .fetch(fetchRequest)
+            tasks = try context.fetch(fetchRequest)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        updateTasks()
     }
     
     
@@ -43,7 +44,7 @@ class CoreDataController: UIViewController {
         
         let fetchRequest: NSFetchRequest<CoreDataTaskController> = CoreDataTaskController.fetchRequest()
             do {
-                tasks = try context .fetch(fetchRequest)
+                tasks = try context.fetch(fetchRequest)
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -67,12 +68,47 @@ extension CoreDataController: UITableViewDataSource, UITableViewDelegate, UIText
 }
 
 extension CoreDataController {
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-    if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-    } else {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Удалить") {
+            _, indexPath in
+            self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<CoreDataTaskController> = CoreDataTaskController.fetchRequest()
+            if let objects = try? context.fetch(fetchRequest) {
+                for object in objects {
+                    context.delete(object)
+                }
+            }
+            do {
+//                self.tasks = try context.fetch(fetchRequest)
+                try context.save()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            for task in self.tasks{
+                guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
+                let taskObject = CoreDataTaskController(entity: entity, insertInto: context)
+                taskObject.taskText = task.taskText
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    
+    return [deleteAction]
 }
 }
 
