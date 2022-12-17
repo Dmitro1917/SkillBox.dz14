@@ -14,13 +14,8 @@ class WeatherDataConversion{
         let multiplier = pow(10.0, numberOfPlaces)
         let rounded = round(tempC * multiplier) / multiplier
         
-//        self.dt_txt = dt_txt
-//        print("Полученная температура - \(temp)K, \(Int(rounded))°C")
-//        self.sunrise = sunrise
         self.temp = Int(rounded)
         self.humidity = humidity
         self.pressure = pressure
-//        print("Давление - \(pressure)мм.рт")
-//        print("Влажность - \(humidity)%")
     }
 }

@@ -27,7 +27,6 @@ class WeatherViewController: UIViewController {
         let nowWeatherData = realm.objects(NowWeatherLabel.self)
         
 //        грузим текущую погодку
-        print("1234567890228 - \(nowWeatherData.count)")
         switch nowWeatherData.count {
         case 0:
             WeatherLoader().loadWeather { weathery in
@@ -153,7 +152,6 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
     let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell") as! WeatherCell
         cell.nameLabel.text = cellNames[indexPath.row]
             let weatherData = realm.objects(WeatherDataRealm.self)
-            print("lol \(weatherData.count)")
             switch weatherData.count {
             case 0:
                 if self.temp.count == cellNames.count{

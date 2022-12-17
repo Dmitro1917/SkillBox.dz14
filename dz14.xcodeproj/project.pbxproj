@@ -25,7 +25,6 @@
 		26AD0D4424169479001F18E2 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD0D4324169479001F18E2 /* Persistance.swift */; };
 		26AD0D462416953C001F18E2 /* RealmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD0D452416953C001F18E2 /* RealmCell.swift */; };
 		26AD0D4824169A33001F18E2 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD0D4724169A33001F18E2 /* RealmController.swift */; };
-		26AD0D4A24169B6E001F18E2 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD0D4924169B6E001F18E2 /* Mission.swift */; };
 		26EA122F294B9EEE009E3DEE /* CoreDataAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EA122E294B9EEE009E3DEE /* CoreDataAddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +51,6 @@
 		26AD0D4324169479001F18E2 /* Persistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		26AD0D452416953C001F18E2 /* RealmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCell.swift; sourceTree = "<group>"; };
 		26AD0D4724169A33001F18E2 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
-		26AD0D4924169B6E001F18E2 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		26EA122E294B9EEE009E3DEE /* CoreDataAddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAddTaskViewController.swift; sourceTree = "<group>"; };
 		5EABEE04FCD72BFEA3E80DB7 /* Pods_dz14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dz14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A172A95E39375F03D4E9C18A /* Pods-dz14.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dz14.release.xcconfig"; path = "Target Support Files/Pods-dz14/Pods-dz14.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 		26AD0D2B24168F7B001F18E2 /* dz14 */ = {
 			isa = PBXGroup;
 			children = (
-				26AD0D4924169B6E001F18E2 /* Mission.swift */,
 				266A17672827F860007C3C99 /* CoreDataController.swift */,
 				266A177228281558007C3C99 /* CoreDataCell.swift */,
 				26AD0D2C24168F7B001F18E2 /* AppDelegate.swift */,
@@ -255,7 +252,6 @@
 				2630ADAF270B8D6600701490 /* WeatherDataСonversion.swift in Sources */,
 				2630ADAC270B8D3300701490 /* WeatherLoader.swift in Sources */,
 				2690879A271C3AED00C86F69 /* RealmAddTaskViewController.swift in Sources */,
-				26AD0D4A24169B6E001F18E2 /* Mission.swift in Sources */,
 				26AD0D3124168F7B001F18E2 /* ViewController.swift in Sources */,
 				266A177328281558007C3C99 /* CoreDataCell.swift in Sources */,
 				266A17682827F860007C3C99 /* CoreDataController.swift in Sources */,
