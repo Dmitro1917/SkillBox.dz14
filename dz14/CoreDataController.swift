@@ -4,7 +4,6 @@ import CoreData
 class CoreDataController: UIViewController {
     
     var tasks: [CoreDataTaskController] = []
-    //    var tasks = ["1", "2", "3"]
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
